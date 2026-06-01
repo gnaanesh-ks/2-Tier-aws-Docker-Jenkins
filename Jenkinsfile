@@ -5,23 +5,17 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git url: 'https://github.com/your-repo/2-tier-app.git',
+                git url: 'https://github.com/gnaanesh-ks/2-Tier-aws-Docker-Jenkins.git',
                     branch: 'main'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'docker-compose build'
+                sh 'docker compose build'
             }
         }
 
-        stage('Deploy') {
-            steps {
-                sh 'docker-compose down'
-                sh 'docker-compose up -d'
-            }
-        }
 
         stage('Done') {
             steps {
